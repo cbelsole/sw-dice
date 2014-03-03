@@ -115,7 +115,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  coffee-rails (~> 4.0.0)
   haml (~> 4.0.5)
   haml-rails
   jbuilder (~> 1.2)
