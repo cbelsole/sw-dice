@@ -17,8 +17,7 @@ module Dice
     attr_reader :result
 
     def roll
-      @result = 1 + rand(@sides)
-
+      @result = rand_roll(@sides)
       case result
       when 1
         @values[:one] || []
@@ -44,8 +43,6 @@ module Dice
         @values[:eleven] || []
       when 12
         @values[:twelve] || []
-      else
-        []
       end
     end
 
@@ -69,7 +66,7 @@ module Dice
       TRIUMPH
     end
 
-    def slef.despair
+    def self.despair
       DESPAIR
     end
 
@@ -79,6 +76,11 @@ module Dice
 
     def self.dark
       DARK
+    end
+
+    private
+    def rand_roll(num)
+      rand(num) + 1
     end
 
   end

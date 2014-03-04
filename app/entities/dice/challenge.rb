@@ -1,6 +1,6 @@
 module Dice
 
-  class Challange < Die
+  class Challenge < Die
 
     def initialize
       @sides = 12

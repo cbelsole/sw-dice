@@ -24,6 +24,9 @@ gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
+gem 'haml', '~> 4.0.5'
+gem "haml-rails"
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
@@ -32,9 +35,12 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-gem 'haml', '~> 4.0.5'
-gem "haml-rails"
+group :test do
+gem 'rspec-core'
+gem 'rspec-rails'
+end
 
+gem 'jazz_hands'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 

@@ -2,15 +2,15 @@ class DicePool
 
   attr_reader :dice, :pool
 
-  def initialize(dice)
-    @dice = dice.map do |die|
+  def initialize(*dice)
+    @dice = dice.map { |die|
       case die
       when :ability
         Dice::Ability.new
       when :boost
         Dice::Boost.new
-      when :challange
-        Dice::Challange.new
+      when :challenge
+        Dice::Challenge.new
       when :difficulty
         Dice::Difficulty.new
       when :force
@@ -20,7 +20,7 @@ class DicePool
       when :setback
         Dice::Setback.new
       end
-    end
+    }.compact
   end
 
   def roll
@@ -47,8 +47,8 @@ class DicePool
 
     result = []
 
-    results += (success - failure).abs.times.map { success > failure ? Dice::Die.success : Dice:Die.failure }
-    results += (advantage - threat).abs.times.map { advantage > threat ? Dice::Die.advantage : Dice:Die.threat }
+    results += (success - failure).abs.times.map { success > failure ? Dice::Die.success : Dice::Die.failure }
+    results += (advantage - threat).abs.times.map { advantage > threat ? Dice::Die.advantage : Dice::Die.threat }
 
     results += triumph.times.map { Dice::Die.triumph }
     results += despair.times.map { Dice::Die.despair }
